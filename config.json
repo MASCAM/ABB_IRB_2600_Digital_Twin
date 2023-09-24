@@ -18,11 +18,19 @@
         
     },
 
+    "ethernet": {
+
+        "host": "127.0.0.1",
+        "port": 1884,
+        "topic": "abb/irb2600/"
+        
+    },
+
     "publisher": {
 
         "host": "localhost",
         "port": 1883,
-        "topic": "haas/minimill/",
+        "topic": "abb/irb2600/",
         "heartbit": 500,
         "simulation": false
 

@@ -1,10 +1,10 @@
 ## MTConnect Adapter for Haas
 
-This Node js project creates an MTConnect adapter to fetch machine status data from a Haas CNC Machine via RS-232, and send it to an MTConnect agent client.
+This Node js project creates a MQTT adapter to fetch machine status data from a ABB IRB 2600 ICR5 controller, and send it to subscribers through a MQTT broker server.
 
 ## Install
 
-You can download or clone this project [here](https://github.com/EfrainRodriguez/Haas-MTConnect-Adapter). However, keep in mind that to install this project you must have `Node js` and `npm` installed on your computer or IoT device. You can download both from [here](https://nodejs.org/en/).
+You can download or clone this project [here](https://github.com/MASCAM/ABB_IRB_2600_Digital_Twin). However, keep in mind that to install this project you must have `Node js` and `npm` installed on your computer or IoT device. You can download both from [here](https://nodejs.org/en/).
 
 In the project directory, you can install the solution by using:
 
@@ -18,25 +18,22 @@ You should add the respective settings for both serial communication and adapter
 
 ```json
 {
-    "serial": {
-        "port": "COM9",
-        "baudrate": 115200,
-        "parity": "even",
-        "stopBits": 1,
-        "dataBits": 7
-    },
 
-    "adapter": {
-        "host": "localhost",
-        "port": 7878,
-        "heartbit": 1000
+    "ethernet": {
+
+        "host": "127.0.0.1",
+        "port": 1884,
+        "topic": "abb/irb2600/"
+        
     },
 
     "publisher": {
 
         "host": "localhost",
-        "port": 7870,
-        "simulation": true
+        "port": 1883,
+        "topic": "abb/irb2600/",
+        "heartbit": 500,
+        "simulation": false
 
     }
 

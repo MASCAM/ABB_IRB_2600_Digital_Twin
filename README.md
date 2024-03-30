@@ -42,32 +42,10 @@ You should add the respective settings for both ethernet communication and MQTT 
 
 Depending on your operating system you should set the serial port name (e.g. `'COM9'` on Windows or `'/dev/ttyUSB0'` on Linux).
 
-This adapter has been used with a Haas Mini Mill machine sending status data to the MTConnect cpp agent from MTConnect Institute, which can be found at https://github.com/mtconnect/cppagent. Also the `Devices.xml` file in this repository contains a xml model for running the cppagent, which is already configured for receiving the data that this adapter is originally intended to get. So far, fetch parameters supported by this adapter are:
-
-- `Q100`: get machine availability
-- `Q104`: get machine operating mode
-- `Q500`: get machine status and program information
-- `Q600`: MACRO
-    - `5041`: current X axis position
-    - `5042`: current Y axis position
-    - `5043`: current Z axis position
-    - `3027`: spindle speed
-    - `1094`: coolant level
-    - `1098`: spindle load
-    - `3026`: tool in spindle
-
-More variables to use with the MACRO Q600 can be added on the basis of your need by appending the adapter code with functions for that. 
-
-To start the adapter, being in the project directory, you can run:
+This MQTT adapter has been used with an ABB IRB 2600 ICR5 controller with RobotWare 5.13.0 OS. To start the adapter, being in the project directory, you can run:
 
 ```console
-npm run adapter
-```
-
-There is also a MQTT solution which you can run with the following command:
-
-```console
-npm run publisher
+npm run mqtt
 ```
 
 In order for it to work you need to install and set up a MQTT broker, the broker used to test this project can be found at `https://github.com/moscajs/aedes/`. In the `config.json` file mentioned above, adjustments are needed in the "publisher" section accordingly to the configurations done to set up the broker. 

@@ -1,3 +1,6 @@
+//João Vítor Arantes Cabral
+//TCP/IP communication socket with ICR5 controller
+
 const net = require('net');
 //var util=require('node:util');
 //import util from 'util';
@@ -8,6 +11,7 @@ const sleep = promisify(setTimeout)
 
 module.exports = function (options, pub) {
 
+    //Server initialization
     let initial_time = Date.now();
     let number_of_messages = 0;
     let _port = options.port || 1884;
@@ -23,6 +27,7 @@ module.exports = function (options, pub) {
             this.clients[socket.id] = socket;
 
         });
+        
         conn.on('data',function(data){
             
             var message = data.toString()
@@ -59,6 +64,7 @@ module.exports = function (options, pub) {
 
     })
     */
+    //Function for extracting data from messages obtained from the controller
     function extract_data(message, pub, options) {
 
         var topic = message.split(";")[0]
@@ -134,7 +140,14 @@ module.exports = function (options, pub) {
 
             //console.log("Speed: ", payload, "\n")
             payload = payload.replace(/[^\d.-]/g, '')
+            //console.log(payload)
             pub.publish(options.topic + "speed", payload)
+        
+        } else if (topic == "MSpeed") {
+
+            //console.log("Speed: ", payload, "\n")
+            payload = payload.replace(/[^\d.-]/g, '')
+            pub.publish(options.topic + "mspeed", payload)
         
         } else if (topic == "RSpeed") {
 
@@ -155,6 +168,18 @@ module.exports = function (options, pub) {
 
             }
             pub.publish(options.topic + "welding", payload)
+        
+        } else if (topic == "WVoltage") {
+
+            pub.publish(options.topic + "wvoltage", payload)
+        
+        } else if (topic == "WCurrent") {
+
+            pub.publish(options.topic + "wcurrent", payload)
+        
+        } else if (topic == "WSpeed") {
+
+            pub.publish(options.topic + "wspeed", payload)
         
         } else if (topic == "PosRotation") {
 
@@ -183,7 +208,8 @@ module.exports = function (options, pub) {
             pub.publish(options.topic + "x_pos", String(aux_arr[0][0]))
             pub.publish(options.topic + "y_pos", String(aux_arr[0][1]))
             pub.publish(options.topic + "z_pos", String(aux_arr[0][2]))
-            pub.publish(options.topic + "rorient", `[${String(aux_arr[1][0])},${String(aux_arr[1][1])},${String(aux_arr[1][2])},${String(aux_arr[1][3])}]`)
+            pub.publish(options.topic + "rorient", 
+`[${String( aux_arr[1][0])},${String( aux_arr[1][1])},${String(aux_arr[1][2])},${String( aux_arr[1][3])}]`)
             //pub.publish(options.topic + "crobt", "[" + payload + "]")
 
         } else if (topic == "Timestamp") {

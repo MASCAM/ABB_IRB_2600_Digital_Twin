@@ -1,0 +1,11 @@
+    VAR string program_name:= "DemoSocket"; !REPLACEWITH THE ACTUAL PROGRAM NAME!!!!!
+    
+    VAR string received_string;
+    VAR string message;
+    VAR intnum timeint:=0;
+    VAR intnum i:=0;
+    VAR socketdev socket1;
+    VAR string strTemp;
+    VAR robtarget actual_pos;
+    VAR intnum state;
+

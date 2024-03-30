@@ -1,0 +1,10 @@
+        IEnable;
+        i:=0;
+        IF i = 0 THEN
+
+            CONNECT timeint WITH socket_management;
+            ITimer 0.5, timeint;
+            i:=1;
+            
+        ENDIF
+

@@ -1,5 +1,11 @@
 node_modules
 
-generate_graphic.py
+
+
+insert_socket_to_rapid.py
+
+generate_graphs_firestore.py
+
+two_different_y_axis_for_single_python_plot_with_twinx.jpg
 
 movie

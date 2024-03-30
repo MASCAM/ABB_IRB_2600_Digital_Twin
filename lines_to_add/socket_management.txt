@@ -1,0 +1,21 @@
+    TRAP socket_management
+        
+        ISleep timeint;
+        IF i = 1 THEN
+            !127.0.0.1
+            SocketCreate socket1;
+            SocketConnect socket1, "127.0.0.1", 1884;
+            SocketSend socket1 \Str:="Status;ONLINE";
+            i:=2;
+        ENDIF
+        send_data;
+        IF received_string = "Shutdown" THEN
+            
+            end_socket;
+            
+        ENDIF
+
+        IWatch timeint;
+        
+    ENDTRAP
+

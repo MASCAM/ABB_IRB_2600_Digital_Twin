@@ -1,0 +1,85 @@
+    PROC send_data()
+
+        message:= "Mode;" + "auto";!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        message:= "Execution;" + program_name;!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        message:= "T;" + ValToStr(CTool());!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        message:= "CW;" + ValToStr(CWobj());!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        !Escolha o work object e ferramenta de acordo com o programa
+        !actual_pos:= CRobT(\Tool:=TTW5500);
+        actual_pos:= CRobT(\Tool:=TTW5500_1 \WObj:=wobj1);
+        !converted_boolean:=StrToVal(ValToStr(soTCPSpeed), converted_float);
+        message:= "Speed;" + ValToStr(1000*AOutput(soTCPSpeed));!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        message:= "MSpeed;" + ValToStr(MaxRobSpeed());!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        message:= "RSpeed;" + ValToStr(CSpeedOverride());!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        message:= "Welding;" + ValToStr(DOutput(doFr1ArcOn));!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        message:= "WVoltage;" + ValToStr(AInput(aiFr1WeldingVoltage));!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+            
+        message:= "WCurrent;" + ValToStr(AOutput(aoFr1Power));!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        message:= "WSpeed;" + ValToStr(AOutput(aoFr1WireSpeedWfi));!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        strTemp:=ValToStr(actual_pos.extax);
+        message:= "PR;" + strTemp;!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        strTemp:=ValToStr(actual_pos.trans) + "," + ValToStr(actual_pos.rot);
+        message:= "CR;" + strTemp;!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        !WaitTime 0.01;
+        SocketReceive socket1 \Str:= message;
+        
+        message:= "Timestamp;" + CDate() + ";" + CTime();!NumToStr(area, 3);
+        SocketSend socket1 \Str:=message;
+        SocketReceive socket1 \Str:= message;
+
+        IF message = "Shutdown" THEN
+            
+            end_socket;
+            
+        ENDIF
+        
+    ENDPROC
+

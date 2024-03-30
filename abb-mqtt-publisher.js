@@ -1,35 +1,19 @@
+//João Vítor Arantes Cabral
+//MQTT publisher in adapter for publishing messages
+
 const Ethernet = require('./abb-irb-ethernet')
-const Simulator = require('./data_simulator')
 const config = require('./config.json')
 
 const mqtt = require('mqtt')
 const Broker = require('./mqtt-broker')
-
-//init
-//const simulation = config.publisher.simulation
-
 var first = true
 
+//Starts the broker and publisher, and initializes the Ethernet socket module
 const broker = new Broker(config.publisher)
-const pub = mqtt.connect(`mqtt://${config.publisher.host}:${config.publisher.port}`)
+const pub = mqtt.connect( `mqtt://${config.publisher.host}:${config.publisher.port}` )
 const ethernet = new Ethernet(config.ethernet, pub)
 
-var position = ""
-//console.log(config.publisher.heartbit)
-pub.on('connect', () => {
-    /*
-    setInterval(() => {
-
-        if (broker.connected >= 1) {
-
-            start()
-
-        }
-
-    }, config.publisher.heartbit)*/
-
-})
-
+//Ending procedure when ctrl+c is pressed
 process.on('SIGINT', function() {
 
     ethernet.server.close()

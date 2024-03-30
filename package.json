@@ -1,19 +1,18 @@
 {
-  "name": "haas-adapter",
+  "name": "abb-mqtt-adapter",
   "version": "1.0.0",
-  "description": "Javascript MTConnect adapter for Haas Machine",
-  "main": "haas-mtconnect-adapter.js",
+  "description": "Javascript MQTT adapter for ABB RW 5.13.0",
+  "main": "abb-mqtt-publisher.js",
   "scripts": {
-    "adapter": "node haas-mtconnect-adapter.js",
-    "mqtt": "node mqtt-publisher.js"
+    "mqtt": "node abb-mqtt-publisher.js"
   },
   "keywords": [
-    "haas",
-    "mtconnect",
+    "ABB",
+    "Ethernet",
     "adapter",
     "mqtt"
   ],
-  "author": "Efrain Rodriguez",
+  "author": "Joao Vitor Arantes Cabral",
   "license": "ISC",
   "dependencies": {
     "aedes": "^0.46.0",

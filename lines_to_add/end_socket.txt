@@ -1,0 +1,10 @@
+    PROC end_socket()
+        
+        IDelete timeint;
+        send_data;
+        SocketSend socket1 \Str:="Status;OFFLINE";
+        SocketReceive socket1 \Str:= message;
+        SocketClose socket1;
+        
+    ENDPROC
+

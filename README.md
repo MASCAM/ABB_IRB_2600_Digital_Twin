@@ -1,4 +1,4 @@
-## MTConnect Adapter for Haas
+## MQTT Publisher for ABB IRB 2600 (RobotWare 5.13.0)
 
 This Node js project creates a MQTT adapter to fetch machine status data from a ABB IRB 2600 ICR5 controller, and send it to subscribers through a MQTT broker server.
 
@@ -14,7 +14,7 @@ npm install
 
 ## How to use
 
-You should add the respective settings for both serial communication and adapter server in the `config.json` file like this:
+You should add the respective settings for both ethernet communication and MQTT adapter server in the `config.json` file like this:
 
 ```json
 {
@@ -75,9 +75,8 @@ In order for it to work you need to install and set up a MQTT broker, the broker
 ## Credits
 The project is part of the research developments in the LaDPRER laboratory, UnB, Brazil.
 
-Contributor: Efrain Rodriguez <br/>
-[Github profile](https://github.com/EfrainRodriguez) <br/>
-[Researchgate profile](https://www.researchgate.net/profile/Efrain_Rodriguez7)
+Contributor: João Vítor Arantes Cabral <br/>
+[Github profile](https://github.com/MASCAM) <br/>
 
 ## License
 

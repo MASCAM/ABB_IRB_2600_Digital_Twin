@@ -40,8 +40,6 @@ You should add the respective settings for both ethernet communication and MQTT 
 }
 ```
 
-Depending on your operating system you should set the serial port name (e.g. `'COM9'` on Windows or `'/dev/ttyUSB0'` on Linux).
-
 This MQTT adapter has been used with an ABB IRB 2600 ICR5 controller with RobotWare 5.13.0 OS. To start the adapter, being in the project directory, you can run:
 
 ```console

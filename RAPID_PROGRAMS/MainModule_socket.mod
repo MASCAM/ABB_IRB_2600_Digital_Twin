@@ -117,7 +117,7 @@ MODULE MainModule
         !WaitTime 0.01;
         SocketReceive socket1 \Str:= message;
         
-        message:= "Timestamp;" + CDate() + ";" + CTime();!NumToStr(area, 3);
+        message:= "Timestamp;" + CDate() + "," + CTime();!NumToStr(area, 3);
         SocketSend socket1 \Str:=message;
         SocketReceive socket1 \Str:= message;
 
@@ -166,7 +166,7 @@ MODULE MainModule
         IF i = 0 THEN
 
             CONNECT timeint WITH socket_management;
-            ITimer 0.5, timeint;
+            ITimer 0.1, timeint;
             i:=1;
             
         ENDIF

@@ -1,10 +1,13 @@
 node_modules
 
+lines_to_add
 
+RAPID_PROGRAMS
 
 insert_socket_to_rapid.py
 
 generate_graphs_firestore.py
+generate_benchmark_timestamp.py
 
 two_different_y_axis_for_single_python_plot_with_twinx.jpg
 

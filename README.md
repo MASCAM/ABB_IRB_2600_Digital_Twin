@@ -39,6 +39,7 @@ You should add the respective settings for both ethernet communication and MQTT 
 
 }
 ```
+Code snippets present in "lines_to_add" directory must be copied and adapted to your RAPID programs for the MQTT adapter to work, server and client must also be properly configured to allow the exchange of TCP/IP socket messages.
 
 This MQTT adapter has been used with an ABB IRB 2600 ICR5 controller with RobotWare 5.13.0 OS. To start the adapter, being in the project directory, you can run:
 

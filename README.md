@@ -59,9 +59,9 @@ Among protocols available in the market regarding supervisory systems' data pipe
 
 The next choice is the Node.js Node-RED framework used for the general subscriber's pipeline and local dashboard HMI. This framework was chosen because of its simplicity in nesting IoT applications with a built-in MQTT compatibility, the function blocks-oriented programming also makes it easier to replace snippets of the code, to maintain the pipeline and to test new iterations and subscriber's topics.
 
-Regarding the cloud database chosen, the Google Cloud Firebase Firestore database was chosen because of its easy port to many programming languages, and also because of its easy initial assembly and configuration, having an easy integration with Node-RED. Being a NoSQL-based database, it is also fast and easy to export documents as text-based files such as .json. 
+Regarding the cloud database chosen, the Google Cloud Firebase Firestore database was chosen because of its easy port to many programming languages, and also because of its easy initial assembly and configuration, having an easy integration with Node-RED. Being a NoSQL-based database, it is also fast and easy to export documents as text-based files such as .json.
 
-Finally, being a freemium and well-documented solution available in the market, RoboDK was chosen as the simulation workspace for the DT movements and processes. More than that, RoboDK can be also used to simulate environments in a browser using both local and cloud-nested servers. RoboDK also facilitates the modeling of robot's kinematics having many options of manufacturers and robots' models available in its library. 
+Finally, being a freemium and well-documented solution available in the market, RoboDK was chosen as the simulation workspace for the DT movements and processes. More than that, RoboDK can also be used to simulate environments in a browser using both local and cloud-nested servers. RoboDK also facilitates the modeling of robot's kinematics, having many options of manufacturers and robots' models available in its library.
 
 
 

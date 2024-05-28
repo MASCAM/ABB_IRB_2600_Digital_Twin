@@ -49,6 +49,22 @@ npm run mqtt
 
 In order for it to work you need to install and set up a MQTT broker, the broker used to test this project can be found at `https://github.com/moscajs/aedes/`. In the `config.json` file mentioned above, adjustments are needed in the "publisher" section accordingly to the configurations done to set up the broker. 
 
+## Project's choices
+
+Throughout the development of this DT's framework, many choices were made regarding the technologies involved in the interfacing between layers/domains of the Digital Twin and the general architecture of the whole project. Each one of them is explained below.
+
+The ISO 23247 standard was chosen as the main basis for the framework development since this norm facilitates reproducibility and general documentation of the project. In fact, the authors of this work were present as listeners at the committee's virtual meetings during the middle cycles of iterations and presentations regarding the development of the ISO 23247. Having that in mind, this whole project also serves as a confirmation of the norm's effectiveness in providing a background for choosing communication standards, data pipeline design and architecture of layers of data representation.
+
+Among protocols available in the market regarding supervisory systems' data pipelines such as OPC UA/DA, MTConnect, Profibus, and the chosen MQTT; the contemplated protocol was chosen because of its' simple assembly and adaptability to many different systems and programming languages available in the market. The MQTT IoT protocol also serves as a fast, reliable and low-processing impact communication protocol commonly used in IoT applications.
+
+The next choice is the Node.js Node-RED framework used for the general subscriber's pipeline and local dashboard HMI. This framework was chosen because of its simplicity in nesting IoT applications with a built-in MQTT compatibility, the function blocks-oriented programming also makes it easier to replace snippets of the code, to maintain the pipeline and to test new iterations and subscriber's topics.
+
+Regarding the cloud database chosen, the Google Cloud Firebase Firestore database was chosen because of its easy port to many programming languages, and also because of its easy initial assembly and configuration, having an easy integration with Node-RED. Being a NoSQL-based database, it is also fast and easy to export documents as text-based files such as .json. 
+
+Finally, being a freemium and well-documented solution available in the market, RoboDK was chosen as the simulation workspace for the DT movements and processes. More than that, RoboDK can be also used to simulate environments in a browser using both local and cloud-nested servers. RoboDK also facilitates the modeling of robot's kinematics having many options of manufacturers and robots' models available in its library. 
+
+
+
 ## Credits
 The project is part of the research developments in the LaDPRER laboratory, UnB, Brazil.
 
